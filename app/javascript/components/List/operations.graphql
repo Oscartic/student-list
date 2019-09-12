@@ -1,11 +1,9 @@
-query listQuery {
+query ListQuery {
     students {
         id
         rut
-        first_name
-        last_name
+        fullName
         course
-        number_list
-        is_present
+        isPresent
     }
 }

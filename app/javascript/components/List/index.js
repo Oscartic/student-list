@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { Query } from 'react-apollo';
-// import { ListStudentsQuery } from './operations.graphql';
+import { ListQuery } from './operations.graphql';
 import cs from './styles';
 
 const List = () => {
     const [student, setStudent] = useState(null);
     return(
         <div>
-        <Query query={Query}>
+        <Query query={ListQuery}>
             {({data, loading}) => (
                 <div className={cs.students}>
                     { loading || !data.students ? "loading..."
-                        : data.students.map(({id, rut, first_name, last_name, course, number_list, is_present}) =>(
+                        : data.students.map(({id, rut, fullName, course, isPresent}) =>(
                             <button
                                 key={id}
                                 className={cs.info}
-                                onClick={() => setStudent({id, rut, first_name, last_name, course, number_list, is_present})}
+                                onClick={() => setStudent({id, rut, fullName, course, isPresent})}
                             >
-                                <strong>{first_name}</strong>
+                                <strong>{fullName}</strong>
+                                <span>{isPresent ? " Presente" : " Ausente" }</span>
 
                             </button>
                         ))
