@@ -12,11 +12,7 @@ const ProcessListForm = ({
     const [rut, setRut] = useState(initRut);
     const [firstName, setFirstName] = useState(initFistName);
     const [lastName, setLastName] = useState(initLastName);
-    const[present, setPresent] = useState(true);
 
-    const handleStatus = () => {
-        setPresent(!present);
-    }
     return (
         <div className={cs.form}>
             <input
@@ -45,14 +41,12 @@ const ProcessListForm = ({
                 "...Loading"
             ) : (
                 <button
-                    //onClick={() => onProcessItem({rut, firstName, lastName})}
+                    onClick={() => onProcessItem({rut, firstName, lastName})}
                     className={cs.button}
                 >
                     {buttonText}
                 </button>
             )}
-
-            <div onClick={()=> handleStatus()}> {present?  "Hola" : "chao"} </div>
         </div>
     );
 };

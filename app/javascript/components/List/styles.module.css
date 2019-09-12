@@ -1,3 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap');
+html{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: #2b2b2b;
+}
+.container {
+    display: block;
+    margin: 1em auto;
+    max-width: 900px;
+}
 .list {
 
+}
+.studentHead {
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    color: #2367a5;
+    padding: 1em;
+    justify-content: space-between;
+}
+.studentHead span {
+    font-weight: 600;
+    display: flex;
+    width: 25%;
+}
+.studentItem {
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    padding: 1em;
+    justify-content: space-between;
+}
+.studentItem span {
+    display: flex;
+    width: 25%;
+}
+.studentItem span .studentPresent {
+    background: #8bc34a;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 3px 10px;
+    text-align: center;
+    width: 70px;
+}
+.studentItem span .studentPresent:hover {
+    background: #4caf50;
+}
+.studentItem span .studentAbsent {
+    background: #b9b9b9;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 3px 10px;
+    text-align: center;
+    width: 70px;
+}
+.studentItem span .studentAbsent:hover {
+    background: #8a8a8a;
 }

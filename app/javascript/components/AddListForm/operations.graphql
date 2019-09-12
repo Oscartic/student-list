@@ -2,8 +2,12 @@ mutation AddListMutation(
     $rut: String!
     $firstName: String
     $lastName: String
+    $course: String
+    $numberList: Integer
+    $isPresent: Boolean
+
 ){
-    addList(rut: $rut, firstName: $firstName, lastName: $lastName) {
+    addList(rut: $rut, firstName: $firstName, lastName: $lastName, course: $course, numberList: $numberList, isPresent: $isPresent) {
         student {
             id
             rut
