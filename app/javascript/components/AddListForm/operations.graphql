@@ -1,0 +1,13 @@
+mutation AddListMutation(
+    $rut: String!
+    $firstName: String
+    $lastName: String
+){
+    addList(rut: $rut, firstName: $firstName, lastName: $lastName) {
+        student {
+            id
+            rut
+            fullName
+        }
+    }
+}
