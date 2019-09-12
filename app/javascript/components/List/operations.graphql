@@ -1,0 +1,11 @@
+query listQuery {
+    students {
+        id
+        rut
+        first_name
+        last_name
+        course
+        number_list
+        is_present
+    }
+}

@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+// import { ListStudentsQuery } from './operations.graphql';
+import cs from './styles';
 
-const ListQuery = gql`
-  {
-  students {
-    id
-    rut
-    fullName
-    course
-    isPresent
-  }
-}
-`;
+const List = () => {
+    const [student, setStudent] = useState(null);
+    return(
+        <div>
+        <Query query={Query}>
+            {({data, loading}) => (
+                <div className={cs.students}>
+                    { loading || !data.students ? "loading..."
+                        : data.students.map(({id, rut, first_name, last_name, course, number_list, is_present}) =>(
+                            <button
+                                key={id}
+                                className={cs.info}
+                                onClick={() => setStudent({id, rut, first_name, last_name, course, number_list, is_present})}
+                            >
+                                <strong>{first_name}</strong>
 
-export default () => (
-    <Query query={ListQuery}>
-        {({ data, loading }) => (
-            <div>
-                {loading
-                    ? 'loading...'
-                    : data.students.map(({ id, rut, fullName, coourse, isPresent }) => (
-                        <div key={id}>
-                            <b>{id}</b> {isPresent ? `present: ${fullName}` : null}
-                        </div>
-                    ))}
-            </div>
-        )}
-    </Query>
-);
+                            </button>
+                        ))
+                    }
+                </div>
+            )
+
+            }
+        </Query>
+        </div>
+    );
+};
+
+
+export default List;

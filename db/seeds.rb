@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+Student.destroy_all
+ActiveRecord::Base.connection.execute("ALTER SEQUENCE STUDENTS_id_seq RESTART WITH 1")
 Student.create!(rut: '23.002.001-1', first_name:"Carlos", last_name:"Lopez", course:"Matemáticas", number_list: 1, is_present:true )
 Student.create!(rut: '23.122.132-3', first_name:"Dario", last_name:"Donoso", course:"Matemáticas", number_list: 2, is_present:true )
 Student.create!(rut: '24.253.187-k', first_name:"Camila", last_name:"Deppaul", course:"Matemáticas", number_list: 3, is_present:true )
